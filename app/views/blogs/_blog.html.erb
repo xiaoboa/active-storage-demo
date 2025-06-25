@@ -1,0 +1,27 @@
+<div id="<%= dom_id blog %>" class="flex flex-col">
+  <div class="mb-3">
+    <span class="font-semibold text-gray-700">Title:</span>
+    <span class="ml-2 text-gray-900"><%= blog.title %></span>
+  </div>
+
+  <div class="mb-4">
+    <span class="font-semibold text-gray-700">Content:</span>
+    <div class="mt-1 text-gray-800"><%= blog.content %></div>
+  </div>
+
+  <% if blog.content_images.attached? %>
+    <div>
+      <span class="font-semibold text-gray-700">Images:</span>
+      <div class="mt-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <% blog.content_images.each do |image| %>
+          <div class="relative overflow-hidden rounded-lg shadow-md aspect-w-16 aspect-h-9 group">
+            <%= image_tag image, class: "w-full h-48 object-cover" %>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 bg-black bg-opacity-50 group-hover:opacity-100 transition-opacity">
+              <%= link_to "View", rails_blob_path(image), target: "_blank", class: "px-4 py-2 bg-white text-gray-900 rounded-md shadow-sm hover:bg-gray-100 transition" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

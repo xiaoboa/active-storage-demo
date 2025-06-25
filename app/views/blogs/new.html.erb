@@ -1,0 +1,13 @@
+<% content_for :title, "New Blog" %>
+
+<div class="w-full max-w-4xl mx-auto px-4">
+  <h1 class="text-3xl font-bold text-gray-800 mb-6">New Blog</h1>
+
+  <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200 mb-6">
+    <%= render "form", blog: @blog %>
+  </div>
+
+  <div>
+    <%= link_to "Back to blogs", blogs_path, class: "text-gray-600 hover:text-gray-800 hover:underline" %>
+  </div>
+</div>

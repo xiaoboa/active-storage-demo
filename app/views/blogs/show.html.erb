@@ -1,0 +1,18 @@
+<p class="text-green-500 mb-4"><%= notice %></p>
+
+<% content_for :title, "Blog Details" %>
+
+<div class="w-full max-w-4xl mx-auto px-4">
+  <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200 mb-6">
+    <%= render @blog %>
+  </div>
+
+  <div class="flex items-center flex-wrap gap-4">
+    <%= link_to "Edit this blog", edit_blog_path(@blog), class: "text-blue-600 hover:text-blue-800 hover:underline" %>
+    <%= link_to "Back to blogs", blogs_path, class: "text-gray-600 hover:text-gray-800 hover:underline" %>
+
+    <%= button_to "Destroy this blog", @blog, method: :delete,
+        class: "ml-auto bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md shadow-sm transition-colors duration-200",
+        form: { data: { turbo_confirm: "Are you sure?" } } %>
+  </div>
+</div>
